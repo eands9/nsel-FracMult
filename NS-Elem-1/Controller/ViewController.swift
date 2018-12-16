@@ -93,6 +93,9 @@ class ViewController: UIViewController {
         answerUserDen = (denCTxt.text! as NSString).doubleValue
         answerUser = answerUserNum / answerUserDen
         
+        print(answerCorrect)
+        print(answerUser)
+        
         if numCTxt.text == "" || denCTxt.text == ""{
             randomTryAgain()
         }
@@ -144,10 +147,11 @@ class ViewController: UIViewController {
         return (h, k)
     }
     func getSimplifiedAnswer(){
-        answerCorrect = (Double(numA)/Double(denA)) + (Double(numB)/Double(denB))
+        answerCorrect = (Double(numA)*Double(numB)) / (Double(denA)*Double(denB))
         let answerCorrectSimplify = simplifyFrac(x0: answerCorrect)
         numC = answerCorrectSimplify.num
         denC = answerCorrectSimplify.den
+
     }
     
     @objc func updateTimer(){
